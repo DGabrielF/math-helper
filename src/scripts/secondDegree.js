@@ -18,10 +18,8 @@ function handleResolve() {
     solution.innerHTML = "";
   }
 
-  const delta = b ** 2 - 4 * a * c;
-  
-  const solutionType = document.createElement("span");
-  
+  const delta = b ** 2 - 4 * a * c;  
+  const solutionType = document.createElement("span");  
   const root = document.createElement("span");
 
   if (delta > 0) {
