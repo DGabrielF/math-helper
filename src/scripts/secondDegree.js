@@ -23,12 +23,12 @@ function handleResolve() {
   const solutionType = document.createElement("span");
   
   if (delta > 0) {
-    solutionType.textContent = `Possui duas soluções reais e distintas, com discriminante = ${delta}`;
+    solutionType.innerHTML = `Possui duas soluções reais e distintas </br> com discriminante = ${delta}`;
     solution.appendChild(solutionType);
     
     const root = document.createElement("span");
     root.textContent = `
-      x': ${((-b - Math.sqrt(delta))/(2 * a)).toFixed(state.values.decimalPlaces)} 
+      x': ${((-b - Math.sqrt(delta))/(2 * a)).toFixed(state.values.decimalPlaces)}  e 
       x": ${((-b + Math.sqrt(delta))/(2 * a)).toFixed(state.values.decimalPlaces)}
     `;    
     solution.appendChild(root);
@@ -48,7 +48,7 @@ function handleResolve() {
   criticalPointLabel.textContent = `E o seu ponto ${(a>0)?"máximo":"mínimo"} se encontra em:`;
   solution.appendChild(criticalPointLabel);
   const criticalPoint = document.createElement("span");
-  criticalPoint.textContent = `X = ${-b / (2 * a)} e Y = ${-delta / (4 * a)}`;
+  criticalPoint.textContent = `X = ${(-b / (2 * a)).toFixed(state.values.decimalPlaces)} e Y = ${(-delta / (4 * a).toFixed(state.values.decimalPlaces))}`;
   solution.appendChild(criticalPoint);
   
   const main = document.querySelector(".main");
@@ -88,14 +88,20 @@ export function secondDegreeStart() {
   entries.innerHTML += " = 0";  
   main.appendChild(entries);
   
+  const buttons = document.createElement("div");
+  buttons.classList.add("buttons-area");
+
   const calculate = document.createElement("button");
   calculate.textContent = "Calcular";
   calculate.addEventListener("click", () => handleResolve());
-  main.appendChild(calculate);
+  buttons.appendChild(calculate);
   
   const reset = document.createElement("button");
+  reset.classList.add("deny")
   reset.textContent = "Limpar";
-  main.appendChild(reset);
+  buttons.appendChild(reset);
+
+  main.appendChild(buttons)
 
   const decimalPlacesLabel = document.createElement("label");
   decimalPlacesLabel.textContent = "Casas decimais: ";

@@ -1,1 +1,67 @@
-@import url("./reset.css")
+@import url("./reset.css");
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #0c3316;
+}
+
+.main {
+  width: 100%;
+  padding: 1vw .5vw;
+  border: .35vw solid #00ff7b50;
+  border-radius: 1.35vw;
+  background: linear-gradient(#00ff7b50,#00ff7b10,#00ff7b50);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1vw;
+}
+.buttons-area {
+  padding: 0 .5vw;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 1vw;
+}
+button {
+  padding: .5vw .25vw;
+  width: 100%;
+  text-transform: uppercase;
+  font-weight: 700;
+  background: linear-gradient(#00800015, #00800010, #00800015);
+}
+button:hover{
+  background: linear-gradient(#00800030, #00800010, #00800030);
+}
+button.deny {
+  background: linear-gradient(#ff000030, #ff000025, #ff000030);
+}
+button.deny:hover{
+  background: linear-gradient(#ff000040, #ff000030, #ff000040);
+}
+
+input, button {
+  text-align: center;
+  border: .35vw solid #00ff7b50;
+  border-radius: 1.35vw;
+}
+input {
+  padding: .5vw .25vw;
+  width: 5vw;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+span {
+  text-align: center;
+}
+
+.solution {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
