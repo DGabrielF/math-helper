@@ -22,28 +22,31 @@ function handleResolve() {
   
   const solutionType = document.createElement("span");
   
+  const root = document.createElement("span");
+
   if (delta > 0) {
     solutionType.innerHTML = `Possui duas soluções reais e distintas </br> com discriminante = ${delta}`;
     solution.appendChild(solutionType);
     
-    const root = document.createElement("span");
     root.textContent = `
       x': ${((-b - Math.sqrt(delta))/(2 * a)).toFixed(state.values.decimalPlaces)}  e 
       x": ${((-b + Math.sqrt(delta))/(2 * a)).toFixed(state.values.decimalPlaces)}
     `;    
-    solution.appendChild(root);
   } else if (delta === 0) {
     solutionType.textContent = "Possui duas soluções reais e idênticas";
     solution.appendChild(solutionType);
     
-    const root = document.createElement("span");
     root.textContent = `x: ${(-b /(2 * a)).toFixed(state.values.decimalPlaces)}`;
-    solution.appendChild(root);
   } else if (delta < 0) {
-    // solutionType.textContent = "Possui duas soluções complexas e distintas";
-    solutionType.textContent = "Não possui soluções reais";
+    solutionType.textContent = "Possui duas soluções complexas e distintas";
     solution.appendChild(solutionType);
+    
+    root.textContent = `
+    x': ${(-b/(2 * a)).toFixed(state.values.decimalPlaces)} - ${(Math.sqrt(Math.abs(delta))/(2 * a)).toFixed(state.values.decimalPlaces)}i e 
+    x": ${(-b/(2 * a)).toFixed(state.values.decimalPlaces)} + ${(Math.sqrt(Math.abs(delta))/(2 * a)).toFixed(state.values.decimalPlaces)}i
+    `; 
   }
+  solution.appendChild(root);
   const criticalPointLabel = document.createElement("span");
   criticalPointLabel.textContent = `E o seu ponto ${(a>0)?"máximo":"mínimo"} se encontra em:`;
   solution.appendChild(criticalPointLabel);
