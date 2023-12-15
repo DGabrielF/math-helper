@@ -8,8 +8,6 @@ const state = {
   ],
 }
 
-
-
 function init () {
   handleMenu(state.menuItems);
   handleContent(state.page);

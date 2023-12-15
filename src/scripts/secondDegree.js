@@ -55,6 +55,16 @@ function handleResolve() {
   main.appendChild(solution);
 }
 
+function handleReset() {
+  const a = document.querySelector("#second-degree-coef-a");
+  const b = document.querySelector("#second-degree-coef-b");
+  const c = document.querySelector("#second-degree-coef-c");
+
+  a.value = 1;
+  b.value = 1;
+  c.value = 1;
+}
+
 export function secondDegreeStart() {
   const main = document.querySelector(".main");
   
@@ -99,6 +109,7 @@ export function secondDegreeStart() {
   const reset = document.createElement("button");
   reset.classList.add("deny")
   reset.textContent = "Limpar";
+  reset.addEventListener("click", () => handleReset());
   buttons.appendChild(reset);
 
   main.appendChild(buttons)
