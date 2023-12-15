@@ -1,14 +1,16 @@
 import { secondDegreeStart } from "./secondDegree.js";
+import { linearEquationSystemStart } from "./linearSystem.js"
 
 export function handleSubMenu(subItems) {
   const options = document.querySelector(".options");
+  options.innerHTML = "";
+  
   subItems.map((subItem) => {
     const subButton = document.createElement("button");
     subButton.classList.add("sub-menu-item");
     subButton.textContent = subItem.name;
     subButton.addEventListener("click", () => {
-      state.page = subItem.key;
-      handleContent();
+      handleContent(subItem.key);
     });
     options.appendChild(subButton);
   });
@@ -23,7 +25,9 @@ export function handleMenu(menuItems) {
     button.textContent = menuItem.item;
     
     button.addEventListener("click", () => {
-      handleSubMenu(menuItem.subItems)});
+      handleContent(menuItem.subItems[0].key);
+      handleSubMenu(menuItem.subItems)
+    });
     menu.appendChild(button);
   });
 };
@@ -31,5 +35,7 @@ export function handleMenu(menuItems) {
 export function handleContent(page) {
   if (page === "secondDegreeEquation") {
     secondDegreeStart();
+  } else if (page === "otherLinearSystem") {
+    linearEquationSystemStart();
   };
 };

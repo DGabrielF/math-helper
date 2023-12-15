@@ -68,9 +68,10 @@ function handleReset() {
 
 export function secondDegreeStart() {
   const main = document.querySelector(".main");
+  main.innerHTML = "";
   
   const header = document.createElement("h2");
-  header.textContent = "Equação de segundo grau";
+  header.textContent = "Equação de Segundo Grau";
   main.appendChild(header);
 
   const standard = document.createElement("h3");
@@ -91,6 +92,7 @@ export function secondDegreeStart() {
   c.defaultValue = 1;
   
   const entries = document.createElement("div");
+  entries.classList.add("entries")
   entries.appendChild(a);
   entries.innerHTML += " x² + ";
   entries.appendChild(b);
