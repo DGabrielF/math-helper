@@ -1,0 +1,13 @@
+@media screen and (min-width: 400px) and (max-width: 800px) {
+  .menu {
+    width: 49vw;
+  }
+  .handle-menu {
+    width: 6vw;
+    min-width: 11px;
+    max-width: 19px;
+  }
+  .menu-content {
+    padding: 2vh 2vw;
+  }
+}
