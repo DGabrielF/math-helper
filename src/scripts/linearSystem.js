@@ -141,10 +141,3 @@ export function linearEquationSystemStart() {
 
   main.appendChild(buttons)
 }
-// Exemplo de sistema de equações 3x3
-let matrixA = [
-  [2, -1, 3],
-  [1, 1, 1],
-  [1, -3, -2]
-];
-let vectorB = [7, 2, -4];
