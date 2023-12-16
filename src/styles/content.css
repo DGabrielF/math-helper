@@ -6,15 +6,25 @@
   gap: 2vh;
 }
 .options {
+  width: 100%;
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: center;
   gap: 1vw;
 }
+.sub-menu-item {
+  max-width: 250px;
+}
 .main {
+  padding: .5vh .5vw;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  border: 2px solid;
+  border-radius: 15px;
+  gap: 1vh;
 }
 .buttons-area {
   padding: 0 .5vw;
@@ -28,6 +38,39 @@
 .buttons-area button {
   max-width: 290px;
 }
+.entries {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: .5vw;
+}
+.equation {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 1vw;
+}
+.equation input{  
+  width: 13vw;
+}
+.content.hidden .main .entries .equation input {
+  width: 6.7vw;
+}
+
+.solution {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.solution span{
+  white-space: nowrap;
+  display: flex;
+  gap: 1vw;
+}
 
 @media screen and (max-width: 400px) {
   .options {
@@ -38,15 +81,25 @@
     width: 80%;
     flex-direction: column;
   }
+  .solution span {
+    flex-direction: column;
+  }
 }
 
 @media screen and (min-width: 400px) and (max-width: 800px) {
   .content.hidden {
-    width: 50vw;
+    width: 100%;
     display: flex;
   }
   .content.hidden .options {
     flex-direction: column;
     gap: 1vh;
+  }
+  .content.hidden .main .entries {
+    font-size: small;
+    text-align: center;
+  }
+  .content.hidden .main .entries .equation input {
+    width: 6.7vw;
   }
 }

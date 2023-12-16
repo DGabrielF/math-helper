@@ -1,7 +1,7 @@
 import { handleSubMenu, handleMenu, handleContent } from "./menus.js";
 
 const state = {
-  page: "otherLinearSystem",
+  page: "secondDegreeEquation",
   subMenu: [{name: "grau 2", key: "secondDegreeEquation"}],
   menuItems: [
     {

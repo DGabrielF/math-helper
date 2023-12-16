@@ -20,9 +20,16 @@ button:hover {
   outline-width: 1px;
   outline-style: solid;
 }
+button.deny {
+  background: linear-gradient(#ff9e4f, #f8020250, #ff9e4f);
+}
+button.deny:hover{
+  background: linear-gradient(#ff000040, #ff000030, #ff000040);
+}
 
 input {
-  padding: 1px 10px;
+  text-align: center;
+  padding: 1px 4px;
   font-weight: 600;
   border: 2px solid;
   border-radius: 15px;
@@ -32,44 +39,10 @@ input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-/*
-.main {
-  width: 100%;
-  padding: 1vw .5vw;
-  border: .35vw solid black;
-  border: .35vw solid #00ff7b50;
-  border-radius: 1.35vw;
-  background: linear-gradient(#00ff7b50,#00ff7b10,#00ff7b50);
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  gap: 1vw;
-}
-.buttons-area {
-  padding: 0 .5vw;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  gap: 1vw;
-}
-button.deny {
-  background: linear-gradient(#ff000030, #ff000025, #ff000030);
-}
-button.deny:hover{
-  background: linear-gradient(#ff000040, #ff000030, #ff000040);
-}
 
-input {
-  padding: .5vw .25vw;
-  width: 5vw;
-}
-
-span {
+h2 {
   text-align: center;
 }
-
-.solution {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-} */
+h3 {
+  text-align: center;
+}

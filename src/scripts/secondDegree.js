@@ -23,7 +23,12 @@ function handleResolve() {
   const root = document.createElement("span");
 
   if (delta > 0) {
-    solutionType.innerHTML = `Possui duas soluções reais e distintas </br> com discriminante = ${delta}`;
+    const solutionText = document.createElement("span");
+    solutionText.textContent = "Possui raízes reais e distintas ";
+    solutionType.appendChild(solutionText);
+    const solutionDelta = document.createElement("span");
+    solutionDelta.textContent = ` com discriminante = ${delta}`
+    solutionType.appendChild(solutionDelta);
     solution.appendChild(solutionType);
     
     root.textContent = `
@@ -75,7 +80,12 @@ export function secondDegreeStart() {
   main.appendChild(header);
 
   const standard = document.createElement("h3");
-  standard.textContent = "Formato padrão: a x² + b x + c = 0";
+const text = document.createElement("p");
+  text.textContent = "Formato padrão";
+  standard.appendChild(text);
+  const example = document.createElement("span");
+  example.textContent = "a x² + b x + c = 0";
+  standard.appendChild(example);
   main.appendChild(standard);
   
   const a = document.createElement("input");
@@ -91,14 +101,20 @@ export function secondDegreeStart() {
   c.id = "second-degree-coef-c";
   c.defaultValue = 1;
   
+  const equation = document.createElement("div");
+  equation.classList.add("equation");
+
+  equation.appendChild(a);
+  equation.innerHTML += " x² + ";
+  equation.appendChild(b);
+  equation.innerHTML += " x + ";
+  equation.appendChild(c);
+  equation.innerHTML += " = 0";
+
   const entries = document.createElement("div");
-  entries.classList.add("entries")
-  entries.appendChild(a);
-  entries.innerHTML += " x² + ";
-  entries.appendChild(b);
-  entries.innerHTML += " x + ";
-  entries.appendChild(c);
-  entries.innerHTML += " = 0";  
+  entries.classList.add("entries");
+  entries.appendChild(equation);
+
   main.appendChild(entries);
   
   const buttons = document.createElement("div");
