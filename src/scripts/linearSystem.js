@@ -6,9 +6,7 @@ const state = {
     vectorB: [],
   },
 }
-function solveLinearSystem() {
-  let n = state.values.systemOrder;
-
+function solveLinearSystem(n) {
   state.values.matrixA = [];
   state.values.vectorB = [];
   
@@ -24,7 +22,7 @@ function solveLinearSystem() {
     } else if (element.id[0] === "b") {
       vector[id] = Number(document.getElementById(id).value);
     }
-  })
+  });
 
   for (let i = 0; i < n; i++) {
     let row = [];
@@ -80,7 +78,7 @@ if (!document.querySelector(".solution")) {
 let i = 1;
 solutions.forEach((answer => {
   const x = document.createElement("span");
-  x.textContent = `x${i}:  ${answer}`
+  x.textContent = `x${i}:  ${(answer).toFixed(state.values.decimalPlaces)}`
   solution.appendChild(x)
   i = i + 1;
 }));
@@ -88,7 +86,15 @@ const main = document.querySelector(".main")
 main.appendChild(solution)
 }
 
-export function linearEquationSystemStart() {
+function handleReset() {
+  const entries = document.querySelector(".entries");
+  const inputs = entries.querySelectorAll(".equation input");
+  inputs.forEach(input => {
+    input.value = 0;
+  });
+}
+
+export function linearEquationSystemStart(n) {
   const main = document.querySelector(".main");
   main.innerHTML = "";
 
@@ -98,19 +104,19 @@ export function linearEquationSystemStart() {
 
   const entries = document.createElement("div");
   entries.classList.add("entries");
-  for (let i = 1; i <= state.values.systemOrder; i++) {
+  for (let i = 1; i <= n; i++) {
     const equation = document.createElement("div");
     equation.classList.add("equation")
 
-    for (let j = 1; j  <= state.values.systemOrder + 1; j++) {
+    for (let j = 1; j  <= n + 1; j++) {
       const coef = document.createElement("input");
       equation.appendChild(coef);
-      if (j < state.values.systemOrder) {
+      if (j < n) {
         coef.id = `a${i}${j}`;
         coef.type = "number";
         coef.defaultValue = 0;
         equation.innerHTML += ` x${j} + `;
-      } else if (j === state.values.systemOrder) {
+      } else if (j === n) {
         coef.id = `a${i}${j}`;
         coef.type = "number";
         coef.defaultValue = 0;
@@ -130,7 +136,7 @@ export function linearEquationSystemStart() {
 
   const calculate = document.createElement("button");
   calculate.textContent = "Calcular";
-  calculate.addEventListener("click", () => solveLinearSystem(state.values.matrixA, state.values.vectorB));
+  calculate.addEventListener("click", () => solveLinearSystem(n));
   buttons.appendChild(calculate);
   
   const reset = document.createElement("button");
@@ -139,5 +145,16 @@ export function linearEquationSystemStart() {
   reset.addEventListener("click", () => handleReset());
   buttons.appendChild(reset);
 
-  main.appendChild(buttons)
+  main.appendChild(buttons);
+
+
+  const decimalPlacesLabel = document.createElement("label");
+  decimalPlacesLabel.textContent = "Casas decimais: ";
+  main.appendChild(decimalPlacesLabel);
+
+  const decimalPlaces = document.createElement("input");
+  decimalPlaces.type = "number";
+  decimalPlaces.defaultValue = 2;
+  decimalPlaces.addEventListener ("change", e => { state.values.decimalPlaces = e.target.value });
+  main.appendChild(decimalPlaces);
 }
