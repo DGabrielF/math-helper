@@ -80,7 +80,7 @@ export function secondDegreeStart() {
   main.appendChild(header);
 
   const standard = document.createElement("h3");
-const text = document.createElement("p");
+  const text = document.createElement("p");
   text.textContent = "Formato padrão";
   standard.appendChild(text);
   const example = document.createElement("span");
@@ -131,7 +131,7 @@ const text = document.createElement("p");
   reset.addEventListener("click", () => handleReset());
   buttons.appendChild(reset);
 
-  main.appendChild(buttons)
+  main.appendChild(buttons);
 
   const decimalPlacesLabel = document.createElement("label");
   decimalPlacesLabel.textContent = "Casas decimais: ";

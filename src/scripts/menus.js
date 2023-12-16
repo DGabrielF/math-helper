@@ -1,3 +1,4 @@
+import { firstDegreeStart } from "./firstDegree.js"
 import { secondDegreeStart } from "./secondDegree.js";
 import { linearEquationSystemStart } from "./linearSystem.js";
 
@@ -36,7 +37,6 @@ export function handleMenu(menuItems) {
   
   state.views.handleMenuButton.innerHTML = state.images.caretRight;
   state.views.handleMenuButton.addEventListener("click", () => {
-    console.log('mudei', state.values.isMenuOpen)
     if (state.values.isMenuOpen) {
       state.views.menu.classList.add("hidden");
       state.views.content.classList.remove("hidden");
@@ -53,8 +53,8 @@ export function handleMenu(menuItems) {
   menuContent.classList.add("menu-content");
 
   const header =document.createElement("h3");
-  header.textContent = "MENU"
-  menuContent.appendChild(header)
+  header.textContent = "MENU";
+  menuContent.appendChild(header);
   
   menuItems.map((menuItem) => {
     const button = document.createElement("button");
@@ -63,17 +63,22 @@ export function handleMenu(menuItems) {
     
     button.addEventListener("click", () => {
       handleContent(menuItem.subItems[0].key);
-      handleSubMenu(menuItem.subItems)
+      handleSubMenu(menuItem.subItems);
     });
     menuContent.appendChild(button);
   });
-  state.views.menu.appendChild(menuContent)
+  state.views.menu.appendChild(menuContent);
 };
-
 export function handleContent(page) {
-  if (page === "secondDegreeEquation") {
+  if (page === "firstDegreeEquation") {
+    firstDegreeStart();
+  } else if (page === "secondDegreeEquation") {
     secondDegreeStart();
-  } else if (page === "otherLinearSystem") {
-    linearEquationSystemStart();
-  };
+  } else if (page === "twoPerTwo") {
+    linearEquationSystemStart(2);
+  } else if (page === "threePerThree") {
+    linearEquationSystemStart(3);
+  } else if (page === "fourPerFour") {
+    linearEquationSystemStart(4);
+  }
 };
