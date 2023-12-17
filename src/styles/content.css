@@ -15,10 +15,15 @@
 }
 .sub-menu-item {
   max-width: 250px;
+  background-color: #a354c0;
+}
+.sub-menu-item:hover {
+  background-color: #00000030;
 }
 .main {
   padding: .5vh .5vw;
   width: 100%;
+  background: linear-gradient(45deg, #ffffff80, #ffffff50, #ffffff80);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -36,7 +41,12 @@
   gap: 1vw;
 }
 .buttons-area button {
+  padding: 4px 0;
   max-width: 290px;
+  background: linear-gradient(#b4f88a, #02f85c50, #b4f88a);
+}
+.buttons-area button:hover {
+  background: linear-gradient(#02f85c50,#01de5250, #02f85c50);
 }
 .entries {
   width: 100%;
@@ -100,6 +110,6 @@
     text-align: center;
   }
   .content.hidden .main .entries .equation input {
-    width: 6.7vw;
+    width: 6.4vw;
   }
 }

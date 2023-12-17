@@ -6,6 +6,7 @@
   display: flex;
   align-items: center;
   gap: 1vw;
+  background-color: #8a54c0;
 }
 
 button {
